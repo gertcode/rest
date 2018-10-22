@@ -5,20 +5,15 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 
-const app = express()
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
 
-
-app.use(require('./routes/usuario'));
- 
-/*app.get('/', function (req, res) {
-  res.json('Hello World')
-})*/
- 
+//configuración global de rutas
+app.use(require('./routes/index'));
 
 
   mongoose.connect(process.env.URLDB,(err,res)=>{
